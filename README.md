@@ -1,75 +1,83 @@
-# React + TypeScript + Vite
+# AI Companion Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, beautifully designed frontend application for AI Companion - a smart chatbot that allows custom AI roles for each chat, providing highly specific interactions tailored to the persona. This React-based application offers an intuitive user interface for seamless interaction with AI companions.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Modern UI/UX**: Clean, responsive design with beautiful animations and interactions
+- **User Management**: Automatic registration and login system with username-based authentication
+- **Multi-Chat Interface**: Manage multiple chat sessions with different AI personas
+- **Custom Personas**: Create and interact with AI companions having specific personalities and roles
+- **Real-time Chat**: Smooth, real-time messaging experience with typing indicators
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
+- **State Management**: Efficient state handling with React Query for optimal performance
+- **Dasboard**: Display all the matrics (Total User, Total Chat, Total Persona, Evg Latency) and some tables.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **Runtime**: Node.js
+- **Framework**: React
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **State Management**: React Query
+- **Routing**: React Router
+- **HTTP Client**: Axios or Fetch API
 
-Note: This will impact Vite dev & build performances.
+## Integrated Backend Application
 
-## Expanding the ESLint configuration
+[AI Companion Backend](https://github.com/your-username/ai-companion-backend)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## How to Contribute
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+We welcome contributions! Please follow these steps to set up the development environment:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. **Clone the repository**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   git clone https://github.com/mhmdd-farhan/ai-companion-frontend.git
+   cd ai-companion-frontend
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Install dependencies**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   ```bash
+   npm install
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. **Set up environment variables**
+
+   ```bash
+   cp .env.example .env
+   # Edit .env with your backend API endpoint and other configuration
+   ```
+
+4. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Run tests**
+
+   ```bash
+   npm test
+   ```
+
+6. **Create a pull request**
+   - Create a feature branch: `git checkout -b feature/your-feature-name`
+   - Make your changes and commit them
+   - Push to your fork and submit a PR
+
+### Development Scripts
+
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build the project for production
+- `npm run preview` - Preview production build
+- `npm test` - Run test suite
+- `npm run test:watch` - Run tests in watch mode
+- `npm run lint` - Run linting
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
