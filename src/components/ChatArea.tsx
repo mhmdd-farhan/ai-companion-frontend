@@ -1,14 +1,15 @@
 import { useEffect, useRef } from 'react';
 import { ChatMessage, type Message } from './ChatMessage';
-import LoadingSpinner from './ui/loading-spinner';
 
 interface ChatAreaProps {
     messages: Message[] | undefined;
     isChatLoading?: boolean;
+    isMessageLoading?: boolean;
 }
 
-export function ChatArea({ messages, isChatLoading }: ChatAreaProps) {
+export function ChatArea({ messages, isChatLoading, isMessageLoading }: ChatAreaProps) {
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const isLoading = isMessageLoading || isChatLoading;
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -18,14 +19,10 @@ export function ChatArea({ messages, isChatLoading }: ChatAreaProps) {
         scrollToBottom();
     }, [messages]);
 
-    if (isChatLoading) {
-        <LoadingSpinner />
-    }
-
     return (
         <div className="flex-1 overflow-y-auto bg-gradient-background">
             <div className="max-w-6xl mx-auto px-4 py-8">
-                {messages?.length === 0 ? (
+                {(messages?.length === 0 && !isChatLoading && !isMessageLoading) ? (
                     <div className="flex items-center justify-center h-full min-h-[400px]">
                         <div className="text-center max-w-md">
                             <div className="w-16 h-16 mx-auto mb-6 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-elegant">
@@ -44,7 +41,11 @@ export function ChatArea({ messages, isChatLoading }: ChatAreaProps) {
                 ) : (
                     <div className="space-y-1">
                         {messages?.map((message) => (
-                            <ChatMessage key={message.id} message={message} />
+                            <ChatMessage
+                                key={message.id}
+                                message={message}
+                                isLoading={isLoading}
+                            />
                         ))}
                     </div>
                 )}
