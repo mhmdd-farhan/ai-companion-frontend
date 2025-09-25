@@ -26,7 +26,7 @@ A modern, beautifully designed frontend application for AI Companion - a smart c
 
 ## Integrated Backend Application
 
-[AI Companion Backend](https://github.com/your-username/ai-companion-backend)
+[AI Companion Backend](https://github.com/mhmdd-farhan/ai-companion-api)
 
 ## How to Contribute
 
